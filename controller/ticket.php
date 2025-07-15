@@ -10,7 +10,8 @@
         break;
         
         case "update":
-            $ticket->update_ticket($_POST["usu_id"]);
+            $ticket->update_ticket($_POST["tick_id"]);
+            $ticket->insert_ticketdetalle_cerrar($_POST["tick_id"], $_POST["usu_id"]);
         break;
 
         case "listar_x_usu":

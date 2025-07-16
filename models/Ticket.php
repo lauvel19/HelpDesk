@@ -135,7 +135,7 @@
         public function insert_ticketdetalle_cerrar($tick_id,$usu_id){
             $conectar= parent::conexion();
             parent::set_names();
-                $sql="INSERT INTO td_ticketdetalle (tickd_id,tick_id,usu_id,tickd_descrip,fech_crea,est) VALUES (NULL,?,?,'Ticket Cerrado',now(),'1');";
+                $sql="call sp_i_ticketdetalle_01(?, ?)";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $tick_id);
             $sql->bindValue(2, $usu_id);
@@ -179,6 +179,22 @@
             $conectar= parent::conexion();
             parent::set_names();
             $sql="SELECT COUNT(*) as TOTAL FROM tm_ticket where tick_estado='Cerrado'";
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        } 
+
+        public function get_ticket_grafico(){
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="SELECT tm_categoria.cat_nom as nom,COUNT(*) AS total
+                FROM   tm_ticket  JOIN  
+                    tm_categoria ON tm_ticket.cat_id = tm_categoria.cat_id  
+                WHERE    
+                tm_ticket.est = 1
+                GROUP BY 
+                tm_categoria.cat_nom 
+                ORDER BY total DESC";
             $sql=$conectar->prepare($sql);
             $sql->execute();
             return $resultado=$sql->fetchAll();

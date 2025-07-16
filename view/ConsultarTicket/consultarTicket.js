@@ -32,6 +32,7 @@ $(document).ready(function() {
                     console.log(e.responseText);	
                 }
             },
+            
             "ordering": false,
             "bDestroy": true,
             "responsive": true,
@@ -85,6 +86,14 @@ $(document).ready(function() {
                     console.log(e.responseText);	
                 }
             },
+            "columns": [
+                { title: "ID" },
+                { title: "Categoría" },
+                { title: "Título" },
+                { title: "Estado" },
+                { title: "Fecha" },
+                { title: "Acción" }
+            ],
             "bDestroy": true,
             "responsive": true,
             "bInfo":true,

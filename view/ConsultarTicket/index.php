@@ -42,7 +42,8 @@ if(isset($_SESSION["usu_id"])){
 							<th class="d-none d-sm-table-cell" style="width: 40%;">Titulo</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Creación</th>
-							<th class="d-none d-sm-table-cell" style="width: 10%;"></th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Asignación</th>
+							<th class="text-center" style="width: 5%;">Soporte</th>
 							<th class="text-center" style="width: 5%;"></th>
 						</tr>
 					</thead>
@@ -56,9 +57,9 @@ if(isset($_SESSION["usu_id"])){
 	</div>
 
 	<!-- Contenido -->
-
-<?php require_once("../MainJs/js.php");?>
-<script type="text/javascript" src="consultarTicket.js"></script>
+	<?php require_once("modalasignar.php");?>
+	<?php require_once("../MainJs/js.php");?>
+	<script type="text/javascript" src="consultarTicket.js"></script>
 
 </body>
 </html>

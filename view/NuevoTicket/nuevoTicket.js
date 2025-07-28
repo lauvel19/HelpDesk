@@ -32,12 +32,21 @@ $(document).ready(function() {
         $('#cat_id').html(data);
     });
 
+    $("#cat_id").change(function(){
+        cat_id = $(this).val();
+
+        $.post("../../controller/subcategoria.php?op=combo", {cat_id: cat_id}, function(data, status){
+        $('#cats_id').html(data);
+        });
+        
+    });
+
 });
 
 function guardaryeditar(e){
     e.preventDefault();
     var formData = new FormData($("#ticket_form")[0]);
-    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()==''){
+    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='' || $('#cats_id').val()==''){
         swal("Advertencia!", "Campos Vacios", "warning");
     }else{
         var totalfiles = $('#fileElem').val().length;

@@ -171,18 +171,19 @@ function listardetalle(tick_id){
         $('#lblestado').html(data.tick_estado);
         $('#lblnomusuario').html(data.usu_nom +' '+data.usu_ape);
         $('#lblfechcrea').html(data.fech_crea);
-
-        $('#lblnomidticket').html("Detalle Ticket -" + data.tick_id);
+        
+        $('#lblnomidticket').html("Detalle Ticket - "+data.tick_id);
 
         $('#cat_nom').val(data.cat_nom);
+        $('#cats_nom').val(data.cats_nom);
         $('#tick_titulo').val(data.tick_titulo);
         $('#tickd_descripusu').summernote ('code',data.tick_descrip);
 
-        if(data.tick_estado_texto == "Cerrado"){ 
-         $('#pnldetalle').hide();
+        console.log( data.tick_estado_texto);
+        if (data.tick_estado_texto == "Cerrado"){
+            $('#pnldetalle').hide();
         }
     }); 
-    
 }
 
 init();

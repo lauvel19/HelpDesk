@@ -10,6 +10,7 @@
                 $html = "";
                 foreach($datos as $row)
                 {
+                    $html.="<option label='Seleccionar'></option>";
                     $html.= "<option value='".$row['cat_id']."'>".$row['cat_nom']."</option>";
                 }
                 echo $html;

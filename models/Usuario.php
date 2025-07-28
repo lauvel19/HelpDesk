@@ -11,8 +11,8 @@
                     header("Location:".conectar::ruta()."view/index.php?m=2");
                     exit();
                 }else{
-                    $sql = "SELECT * FROM tm_usuario WHERE usu_correo = ? and usu_pass = ? and rol_id=? and est = 1;";
-                    $stmt=$conectar->prepare(query:$sql);
+                    $sql = "SELECT * FROM tm_usuario WHERE usu_correo = ? and usu_pass = MD5(?) and rol_id=? and est = 1;";
+                    $stmt=$conectar->prepare($sql);
                     $stmt->bindValue(1, $correo);
                     $stmt->bindValue(2, $pass);
                     $stmt->bindValue(3, $rol);
@@ -149,6 +149,21 @@
                 ORDER BY total DESC";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function update_usuario_pass($usu_id,$usu_pass){
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="UPDATE tm_usuario
+                SET
+                    usu_pass = MD5(?)
+                WHERE
+                    usu_id = ?";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_pass);
+            $sql->bindValue(2, $usu_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }

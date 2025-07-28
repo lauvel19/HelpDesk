@@ -59,6 +59,8 @@
                 tm_ticket.tick_titulo,
                 tm_ticket.tick_descrip,
                 tm_ticket.fech_crea,
+                tm_ticket.tick_estre,
+                tm_ticket.tick_coment,
                 tm_ticket.tick_estado,
                 tm_ticket.fech_asig,
                 tm_usuario.usu_nom,
@@ -251,5 +253,22 @@
             $sql->execute();
             return $resultado=$sql->fetchAll();
         } 
+
+        public function insert_encuesta($tick_id, $tick_estre, $tick_coment){
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="update tm_ticket 
+                set	
+                    tick_estre = ?,
+                    tick_coment = ?
+                where
+                    tick_id = ?";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $tick_estre);
+            $sql->bindValue(2, $tick_coment);
+            $sql->bindValue(3, $tick_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
     }
 ?>

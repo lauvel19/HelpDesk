@@ -1,54 +1,54 @@
 <?php
-    class Categoria extends Conectar{
-
-        public function get_categoria(){
+    class Prioridad extends Conectar{
+ 
+        public function get_prioridad(){
             $conectar= parent::conexion();
             parent::set_names();
-            $sql="SELECT * FROM tm_categoria WHERE est=1;";
+            $sql="SELECT * FROM tm_prioridad WHERE est=1;";
             $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        } 
+ 
+         public function insert_prioridad($prio_nom){
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="INSERT INTO tm_prioridad (prio_id, prio_nom, est ) VALUES (NULL,?,'1');";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $prio_nom);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
 
-        public function insert_categoria($cat_nom){
+        public function update_prioridad($prio_id,$prio_nom){
             $conectar= parent::conexion();
             parent::set_names();
-            $sql="INSERT INTO tm_categoria (cat_id, cat_nom, est) VALUES (NULL,?,'1');";
+            $sql="UPDATE tm_prioridad SET prio_nom = ? WHERE prio_id = ?";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1, $cat_nom);
+            $sql->bindValue(1, $prio_nom);
+            $sql->bindValue(2, $prio_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
 
-        public function update_categoria($cat_id,$cat_nom){
+        public function delete_prioridad($prio_id){
             $conectar= parent::conexion();
             parent::set_names();
-            $sql="UPDATE tm_categoria SET cat_nom = ? WHERE cat_id = ?";
-            $sql=$conectar->prepare($sql);
-            $sql->bindValue(1, $cat_nom);
-            $sql->bindValue(2, $cat_id);
-            $sql->execute();
-            return $resultado=$sql->fetchAll();
-        }
-
-        public function delete_categoria($cat_id){
-            $conectar= parent::conexion();
-            parent::set_names();
-            $sql="UPDATE tm_categoria 
+            $sql="UPDATE tm_prioridad 
             SET est='0' 
-            where cat_id=?";
+            where prio_id=?";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1, $cat_id);
+            $sql->bindValue(1, $prio_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
 
-        public function get_categoria_x_id($cat_id){
+        public function get_prioridad_x_id($prio_id){
             $conectar= parent::conexion();
             parent::set_names();
-            $sql="SELECT * FROM tm_categoria WHERE cat_id=?";
+            $sql="SELECT * FROM tm_prioridad WHERE prio_id=?";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1, $cat_id);
+            $sql->bindValue(1, $prio_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }

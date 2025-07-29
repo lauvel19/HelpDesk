@@ -48,16 +48,22 @@ if (isset($_SESSION["usu_id"])) {
               </div>
 
 
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <fieldset class="form-group">
                   <label class="form-label semibold" for="cat_nom">Categoria</label>
                   <input type="text" class="form-control" id="cat_nom" name="cat_nom" readonly>
                 </fieldset>
               </div>
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <fieldset class="form-group">
                   <label class="form-label semibold" for="cat_nom">Subcategoria</label>
                   <input type="text" class="form-control" id="cats_nom" name="cats_nom" readonly>
+                </fieldset>
+              </div>
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="cat_nom">Prioridad</label>
+                  <input type="text" class="form-control" id="prio_nom" name="prio_nom" readonly>
                 </fieldset>
               </div>
 
@@ -109,6 +115,14 @@ if (isset($_SESSION["usu_id"])) {
                   </div>
                 </fieldset>
               </div>
+
+              <div class="col-lg-12">
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="exampleInput">Documentos Adicionales</label>
+								<input type="file" name="fileElem" id="fileElem" class="form-control" multiple>
+							</fieldset>
+						</div>
+
               <div class="col-lg-12">
                 <button type="button" id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
                 <button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-warning">Cerrar Ticket</button>

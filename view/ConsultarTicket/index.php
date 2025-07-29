@@ -34,15 +34,61 @@ if(isset($_SESSION["usu_id"])){
 			</header>
 
 			<div class="box-typical box-typical-padding">
+
+			<div class="row" id="viewuser">
+					<div class="col-lg-3">
+						<fieldset class="form-group">
+							<label class="form-label" for="tick_titulo">Titulo</label>
+							<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Titulo" required>
+						</fieldset>
+					</div>
+
+					<div class="col-lg-3">
+						<fieldset class="form-group">
+							<label class="form-label" for="cat_id">Categoria</label>
+							<select class="select2" id="cat_id" name="cat_id" data-placeholder="Seleccionar">
+								<option label="Seleccionar"></option>
+
+							</select>
+						</fieldset>
+					</div>
+
+					<div class="col-lg-2">
+						<fieldset class="form-group">
+							<label class="form-label" for="prio_id">Prioridad</label>
+							<select class="select2" id="prio_id" name="prio_id" data-placeholder="Seleccionar">
+								<option label="Seleccionar"></option>
+
+							</select>
+						</fieldset>
+					</div>
+
+					<div class="col-lg-2">
+						<fieldset class="form-group">
+							<label class="form-label" for="btnfiltrar">&nbsp;</label>
+							<button type="submit" class="btn btn-rounded btn-primary btn-block" id="btnfiltrar">Filtrar</button>
+						</fieldset>
+					</div>
+
+					<div class="col-lg-2">
+						<fieldset class="form-group">
+							<label class="form-label" for="btntodo">&nbsp;</label>
+							<button class="btn btn-rounded btn-primary btn-block" id="btntodo">Ver Todo</button>
+						</fieldset>
+					</div>
+				</div>
+				<div class="box-typical box-typical-padding" id="table"></div>
 				<table id="ticket_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
 					<thead>
 						<tr>
 							<th style="width: 5%;">Nro.Ticket</th>
 							<th style="width: 15%;">Categoria</th>
 							<th class="d-none d-sm-table-cell" style="width: 40%;">Titulo</th>
+							<th class="d-none d-sm-table-cell" style="width: 5%;">Prioridad</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Creación</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Asignación</th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Cierre</th>
 							<th class="text-center" style="width: 5%;">Soporte</th>
 							<th class="text-center" style="width: 5%;"></th>
 						</tr>
@@ -51,6 +97,7 @@ if(isset($_SESSION["usu_id"])){
 
 					</tbody>
 				</table>
+				</div>
 			</div>
 
 		</div>

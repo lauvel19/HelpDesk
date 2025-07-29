@@ -41,12 +41,16 @@ $(document).ready(function() {
         
     });
 
+    $.post("../../controller/prioridad.php?op=combo",function(data, status){
+        $('#prio_id').html(data);
+    });
+
 });
 
 function guardaryeditar(e){
     e.preventDefault();
     var formData = new FormData($("#ticket_form")[0]);
-    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='' || $('#cats_id').val()==''){
+    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='' || $('#cats_id').val()=='' || $('#prio_id').val()==''){
         swal("Advertencia!", "Campos Vacios", "warning");
     }else{
         var totalfiles = $('#fileElem').val().length;

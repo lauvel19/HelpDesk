@@ -84,7 +84,7 @@
             }
             break;
 
-        case "totalcerrado";
+        case "totalcerrado"; 
             $datos=$usuario->get_usuario_totalcerrado_x_id($_POST["usu_id"]);  
             if(is_array($datos)==true and count($datos)>0){
                 foreach($datos as $row)

@@ -39,9 +39,28 @@
                     <li class="blue-dirty">
                         <a href="..\MntUsuario\">
                             <span class="glyphicon glyphicon-th"></span>
-                            <span class="lbl">Mantenimiento usuario</span>
+                            <span class="lbl">Mant. usuario</span>
                         </a>
                     </li>
+                    <li class="blue-dirty">
+                        <a href="..\MntPrioridad\">
+                            <span class="glyphicon glyphicon-th"></span>
+                            <span class="lbl">Mant. Prioridad</span>
+                        </a>
+                    </li>
+                    <li class="blue-dirty">
+                        <a href="..\MntCategoria\">
+                            <span class="glyphicon glyphicon-th"></span>
+                            <span class="lbl">Mant. Categoria</span>
+                        </a>
+                    </li>
+                    <li class="blue-dirty">
+                        <a href="..\MntSubCategoria\">
+                            <span class="glyphicon glyphicon-th"></span>
+                            <span class="lbl">Mant. Sub Categoria</span>
+                        </a>
+                    </li>
+                    
                     <li class="blue-dirty">
                         <a href="..\ConsultarTicket\">
                             <span class="glyphicon glyphicon-th"></span>

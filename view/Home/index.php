@@ -68,6 +68,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 	<script type="text/javascript" src="home.js"></script>
+	<script type="text/javascript" src="../notificacion.js"></script>
 
 </body>
 </html>

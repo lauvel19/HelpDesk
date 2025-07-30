@@ -109,6 +109,7 @@
 	<?php require_once("../MainJs/js.php");?>
 
 	<script type="text/javascript" src="../../view/NuevoTicket/nuevoTicket.js"></script>
+	<script type="text/javascript" src="../notificacion.js"></script>
 
 </body>
 </html>

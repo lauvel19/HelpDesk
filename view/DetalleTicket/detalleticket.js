@@ -124,7 +124,7 @@ $(document).on("click", "#btnenviar", function(){
         }else{
             var formData = new FormData();
             formData.append('tick_id', tick_id);
-            formData.append('usu_id', usu_id);
+            formData.append('usu_id', usu_id); 
             formData.append('tickd_descrip', tickd_descrip);
             var totalfiles = $('#fileElem').val().length;
                 for (var i = 0; i < totalfiles; i++) {
@@ -204,6 +204,7 @@ function listardetalle(tick_id){
             $('#pnldetalle').hide();
         }
     }); 
+
 }
 
 init();
